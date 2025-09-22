@@ -23,7 +23,21 @@
         <script src="{% static 'app/js/myscript.js' %}"></script>
         <script type = "text/javascript">
             var user = '{{request.user}}'
-            
+            function getCookie(name) {
+                let cookieValue = null;
+                if (document.cookie && document.cookie !== '') {
+                    const cookies = document.cookie.split(';');
+                    for (let i = 0; i < cookies.length; i++) {
+                        const cookie = cookies[i].trim();
+                        if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                            cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                            break;
+                        }
+                    }
+                }
+                return cookieValue;
+            }
+        const csrftoken = getCookie('csrftoken');
         </script>
 
         <title>Web ban hang</title>
@@ -79,15 +93,17 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                            <a class="nav-link" href="{% url 'cart' %}">Giỏ hàng</a>
-                    </li>
-                    <li class="nav-item">
                             <a class="nav-link" href="#">Đăng nhập</a>
                     </li>
                     <li class="nav-item">
                             <a class="nav-link" href="#">Đăng ký</a>
                     </li>
                 </ul>
+                <div class = "form-inline my-2 my-lf-0">
+                    <a href="{% url 'cart' %}"><img id = "cart-icon" src = "{% static 'app/images/cart.jpg' %}">
+                    <p id = "cart-total">{{ cartItems }}</p>
+                    </a>
+                </div>
             </div>
         </nav>
         <!--main body-->
