@@ -43,8 +43,10 @@ def home(request):
         items = []
         order = {'get_cart_items': 0, 'get_cart_total': 0}
         cartItems = order['get_cart_items']
+    categories = Category.objects.filter(is_sub=False)
+    active_category = request.GET.get('category', '')
     products = Product.objects.all()
-    context = {'products': products, 'cartItems': cartItems}
+    context = {'products': products, 'cartItems': cartItems, 'categories': categories, 'active_category': active_category}
     return render(request, 'app/home.html', context)
 def cart(request):
     if request.user.is_authenticated:
@@ -54,9 +56,10 @@ def cart(request):
         cartItems = order.get_cart_items
     else:
         items = []
-        order = {'get_cart_total': 0, 'get_cart_total': 0}
+        order = {'get_cart_total': 0, 'get_cart_items': 0}
         cartItems = order['get_cart_items']
-    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    categories = Category.objects.filter(is_sub=False)
+    context = {'items': items, 'order': order, 'cartItems': cartItems, 'categories': categories}
     return render(request, 'app/cart.html', context)
 def checkout(request):
     if request.user.is_authenticated:
@@ -68,7 +71,8 @@ def checkout(request):
         items = []
         order = {'get_cart_items': 0, 'get_cart_total': 0}
         cartItems = order['get_cart_items']
-    context = {'items': items, 'order': order, 'cartItems': cartItems}
+    categories = Category.objects.filter(is_sub=False)
+    context = {'items': items, 'order': order, 'cartItems': cartItems, 'categories': categories}
     return render(request, 'app/checkout.html', context)
 def updateItem(request):
     data = json.loads(request.body)
@@ -101,3 +105,11 @@ def search(request):
         cartItems = order['get_cart_items']
     products = Product.objects.all()
     return render(request, 'app/search.html', {'searched': searched, 'keys': keys, 'products': products, 'cartItems': cartItems})
+def category(request):
+    categories = Category.objects.filter(is_sub=False)
+    active_category = request.GET.get('category', '')
+    products = []
+    if active_category:
+        products = Product.objects.filter(category__slug=active_category)
+    context = {'categories': categories, 'products': products, 'active_category': active_category}
+    return render(request, 'app/category.html', context)

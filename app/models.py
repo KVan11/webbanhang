@@ -4,11 +4,20 @@ from django.contrib.auth.forms import UserCreationForm
 
 # Create your models here.
 # Change forms register
+#category(danh mục)
+class Category(models.Model):
+    sub_category = models.ForeignKey('self', on_delete=models.CASCADE, related_name='sub_categories', null=True, blank=True)
+    is_sub = models.BooleanField(default=False)
+    name = models.CharField(max_length=200, null=True)
+    slug = models.SlugField(max_length=200, unique=True)
+    def __str__(self):
+        return self.name
 class CreateUserForm(UserCreationForm):
     class Meta:
         model = User
         fields = ['username', 'email', 'first_name', 'last_name', 'password1', 'password2']
 class Product(models.Model):
+    category = models.ForeignKey(Category, related_name='products', on_delete=models.CASCADE, null=True) 
     name = models.CharField(max_length=200, null=True)
     price = models.FloatField()
     digital = models.BooleanField(default=False, null=True, blank=False)

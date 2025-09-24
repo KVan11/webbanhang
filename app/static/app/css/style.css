@@ -84,3 +84,25 @@
 .goodnesssec a{
     text-decoration: none;
 }
+/* menu */
+.cart-container {
+    position: relative;
+    display: inline-block;
+}
+#cart-icon {
+    width: 32px;
+    height: 32px;
+}
+#cart-total {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: red;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 7px;
+    font-size: 14px;
+    font-weight: bold;
+    z-index: 10;
+    line-height: 1;
+}
