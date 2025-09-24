@@ -9,8 +9,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="">
     </head>
-    <>
-        {% block register %}
+    <body>
+        {% block login %}
         <section class="vh-100" style="background-color: #eee;">
             <div class="container h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
@@ -47,6 +47,11 @@
                             <p class="text-center h6 fw-bold mb-5 mx-1 mx-md-4 mt-4">
                                 You don't have an account? <a href="{% url 'register' %}">Register</a>
                             </p>
+                            {% for message in messages %}
+                            <p id = "message" class="text-center h6 fw-bold mb-5 mx-1 mx-md-4 mt-4">
+                                {{ message }}
+                            </p>
+                            {% endfor %}
                             
                             </form>
 
@@ -82,6 +87,6 @@
         <![endif]-->
         
         <script src="" async defer></script>
-        {% endblock register %}
+        {% endblock login %}
     </body>
 </html>
