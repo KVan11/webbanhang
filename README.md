@@ -21,7 +21,9 @@
        git clone https://github.com/username/webbanhang.git
     - Cài đặt môi trường Python và các thư viện cần thiết: pip install -r requirements.txt
     - Khởi chạy XAMPP (Apache + MySQL)
-    - Chạy server Django: python manage.py runserver
+    - Chạy server Django:
+     ```bash
+       python manage.py runserver
     - Mở trình duyệt tại: http://127.0.0.1:8000/
 4. Hướng phát triển
    - Tích hợp thanh toán trực tuyến
