@@ -3,7 +3,7 @@
    - Đây là một website bán hàng đơn giản
    - Công cụ và ngôn ngữ sử dụng:
      + Xampp (MySql)
-     + Python
+     + Python (Django)
      + HTML+CSS
 2. Chức năng chính
   Người dùng:
