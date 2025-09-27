@@ -24,7 +24,7 @@
     - Chạy server Django:
      ```bash
        python manage.py runserver
-    - Mở trình duyệt tại: http://127.0.0.1:8000/
+Mở trình duyệt tại: http://127.0.0.1:8000/
 4. Hướng phát triển
    - Tích hợp thanh toán trực tuyến
    - Tối ưu SEO và bảo mật
