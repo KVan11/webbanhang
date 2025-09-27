@@ -6,15 +6,15 @@
      + Python (Django)
      + HTML+CSS
 2. Chức năng chính
-  Người dùng:
-    - 🛒 Hiển thị danh sách sản phẩm
-    - 🔍 Tìm kiếm sản phẩm theo tên hoặc loại
-    - ➕ Thêm/Xóa sản phẩm giỏ hàng
-    - 👤 Đăng ký/Đăng nhập người dùng
-  Quản trị viên:
-    - ➕ Thêm/Xóa/Sửa sản phẩm
-    - 👤 Quản lý người dùng
-    - 🛒 Quản lý đơn hàng
+  - Người dùng:
+     + 🛒 Hiển thị danh sách sản phẩm
+     + 🔍 Tìm kiếm sản phẩm theo tên hoặc loại
+     + ➕ Thêm/Xóa sản phẩm giỏ hàng
+     + 👤 Đăng ký/Đăng nhập người dùng
+   - Quản trị viên:
+     + ➕ Thêm/Xóa/Sửa sản phẩm
+     + 👤 Quản lý người dùng
+     + 🛒 Quản lý đơn hàng
 3. Cách cài đặt và sử dụng
    - Clone repository
       ```bash
